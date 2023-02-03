@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>AwesomeCoffee</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8">
+        <style>            
+            .calculator {
+                background-color: #ff6e5e;
+                margin-bottom: 80px;
+            }
+            .calculator .powered{
+                color: #fff;
+                padding: 15px;
+            }
+            .calculator .powered a{
+                color: #fff;
+                text-decoration: none;
+            }
+            .calculator .p-15{
+                padding: 15px;
+            }
+            .calculator .top.mobile {
+                display: none;
+            }
+            .calculator .title {
+                text-align: center;
+                background-repeat: no-repeat;
+                background-position: center;
+                padding: 60px 0;
+            }
+            .calculator .title p.small {
+                font-weight: 700;
+                font-size: 20px;
+                margin: 0;
+            }
+            .calculator .title .main {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .calculator .title .main h1 {
+                margin: 0 20px;
+                font-size: 50px;
+                font-weight: 700;
+                color: #2f222b;
+            }
+            .calculator .input {
+                display: flex;
+                justify-content: center;
+            }
+            .calculator .input .input_news {
+                display: flex;
+                position: relative;
+                z-index: 3;
+                width: 800px;
+            }
+            .calculator .input .input_news .email_inp {
+                border: 1px solid black;
+                outline: none;
+                width: 67.5%;
+                z-index: 3;
+                font-size: 26px;
+                padding: 37px 30px 37px 60px;
+                font-weight: "FuturaPT" !important;
+            }
+            .calculator .input .input_news .email_inp::-webkit-outer-spin-button,
+            .calculator .input .input_news .email_inp::-webkit-inner-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+            }
+            .calculator .input .input_news .subscribe {
+                z-index: 3;
+                padding: 10px 20px;
+                border: 1px solid black;
+                background-color: #2f222b;
+                color: #fff;
+                width: 37.5%;
+                font-size: 24px;
+                font-weight: 600;
+                letter-spacing: 1px;
+            }
+            .calculator .input .input_news:after {
+                content: "";
+                width: 100%;
+                z-index: 1;
+                height: 100%;
+                position: absolute;
+                background: transparent;
+                border: 2px solid black;
+                top: 10px;
+                left: 10px;
+            }
+            .calculator .output_main {
+                display: flex;
+                padding-top: 60px;
+            }
+            .calculator .output_main .left {
+                width: 60%;
+                text-align: center;
+                padding-top: 65px;
+            }
+            .calculator .output_main .left .top {
+                margin-bottom: 30px;
+            }
+            .calculator .output_main .left .top p {
+                margin: 0;
+                font-size: 36px;
+                font-weight: 700;
+                line-height: 46px;
+            }
+            .calculator .output_main .left .output {
+                color: #000;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: relative;
+            }
+            .calculator .output_main .left .output .img {
+                margin-right: 10px;
+                position: relative;
+            }
+            .calculator .output_main .left .output .output_text_main,
+            .calculator .output_main .left .output .output_cup_main {
+                position: absolute;
+                top: 50%;
+                transform: translate(-50%, -50%);
+            }
+            .calculator .output_main .left .output .output_text_main p.output_text,
+            .calculator .output_main .left .output .output_text_main p.output_cup,
+            .calculator .output_main .left .output .output_cup_main p.output_text,
+            .calculator .output_main .left .output .output_cup_main p.output_cup {
+                margin-bottom: 0;
+                margin-top: 0;
+                line-height: 1;
+            }
+            .calculator .output_main .left .output .output_text_main p,
+            .calculator .output_main .left .output .output_cup_main p {
+                font-size: 36px;
+            }
+            .calculator .output_main .left .output .output_text_main span,
+            .calculator .output_main .left .output .output_cup_main span {
+                font-size: 30px;
+            }
+            .calculator .output_main .left .output .output_text_main {
+                left: 50%;
+            }
+            .calculator .output_main .left .output .output_cup_main {
+                left: 44%;
+            }
+            .calculator .output_main .right {
+                width: 50%;
+                position: relative;
+                text-align: center;
+                display: flex;
+            }
+            .calculator .output_main .right span.output_text {
+                background-color: #fdf0ea;
+                color: #000;
+                font-size: 44px;
+                position: absolute;
+                top: 58px;
+                right: 39%;
+                padding: 0 20px;
+                min-width: 80px;
+            }
+            .w-100{
+                width: 100%;
+            }
+            /* second =========================== */
+                .calculator .title p.small {
+                    font-size: 18px;
+                }
+                .calculator .title .main img {
+                    width: 32px;
+                }
+                .calculator .title .main h1 {
+                    margin: 0 20px;
+                    font-size: 37px;
+                }
+                .calculator .input .input_news .email_inp {
+                    width: 80%;
+                    font-size: 15px;
+                    padding: 17px 10px 17px 20px;
+                }
+                .calculator .input .input_news .email_inp::-webkit-outer-spin-button,
+                .calculator .input .input_news .email_inp::-webkit-inner-spin-button {
+                    -webkit-appearance: none;
+                    margin: 0;
+                }
+                .calculator .input .input_news .subscribe {
+                    width: 34%;
+                    padding: 10px;
+                    font-size: 14px;
+                }
+                .calculator .input .input_news:after {
+                    content: "";
+                    width: 100%;
+                    z-index: 1;
+                    height: 100%;
+                    position: absolute;
+                    background: transparent;
+                    border: 2px solid black;
+                    top: 10px;
+                    left: 10px;
+                }
+                .calculator .output_main {
+                    padding-top: 60px;
+                    align-items: center;
+                }
+                .calculator .output_main .left {
+                    width: 100%;
+                    padding-top: 0;
+                }
+                .calculator .output_main .left .top p {
+                    font-size: 30px;
+                    line-height: 40px;
+                }
+                .calculator .output_main .left .output {
+                    margin-bottom: 20px;
+                }
+                .calculator .output_main .left .output .img {
+                    margin-right: 10px;
+                }
+                .calculator .output_main .left .output span {
+                    font-size: 40px;
+                }
+                .calculator .output_main .right {
+                    width: 100%;
+                    justify-content: center !important;
+                }
+                .calculator .output_main .right span.output_text {
+                    top: 65px;
+                    right: 35%;
+                    padding: 0 20px;
+                    min-width: 80px;
+                }
+
+            @media (max-width: 576px) {
+                .calculator {
+                    padding: 0 20px;
+                    width: 90%;
+                    margin: 0 auto 30px;
+                    overflow: hidden;
+                }
+                .calculator .title {
+                    padding: 90px 0 40px;
+                    background: url(https://cdn.shopify.com/s/files/1/0393/0007/1555/files/Vector_7.png?v=1653333369);
+                    background-repeat: no-repeat;
+                    background-position: 50% 90%;
+                    background-size: 70%;
+                }
+                .calculator .title p.small {
+                    font-size: 18px;
+                }
+                .calculator .title p.small img {
+                    width: 60%;
+                }
+                .calculator .title .main {
+                    position: relative;
+                    margin-top: 20px;
+                    align-items: flex-start;
+                }
+                .calculator .title .main .calc_title {
+                    position: absolute;
+                }
+                .calculator .title .main .calc_title.left {
+                    left: 15%;
+                }
+                .calculator .title .main .calc_title.right {
+                    right: 15%;
+                }
+                .calculator .title .main img {
+                    width: 32px;
+                }
+                .calculator .title .main h1 {
+                    margin: 0 20px;
+                    font-size: 33px;
+                }
+                .calculator .top.mobile {
+                    display: block;
+                    text-align: center;
+                    margin-bottom: 30px;
+                }
+                .calculator .top.mobile p {
+                    margin: 0;
+                    font-size: 26px;
+                    font-weight: 700;
+                    line-height: 35px;
+                }
+                .calculator .input .input_news {
+                    flex-direction: column;
+                }
+                .calculator .input .input_news .email_inp {
+                    width: calc(100% - 60px);
+                    padding: 15px 20px;
+                    border: 2px solid #2f222b;
+                    font-size: 14px !important;
+                    box-shadow: #ff6e5e 10px 10px 0 -2.5px, #2f222b 10px 10px 0 -1px;
+                }
+                .calculator .input .input_news .subscribe {
+                    width: max-content;
+                    padding: 15px 20px;
+                    font-size: 13px;
+                    margin: 30px auto 0;
+                    box-shadow: #ff6e5e 10px 10px 0 -2.5px, #2f222b 10px 10px 0 -1px;
+                }
+                .calculator .input .input_news:after {
+                    display: none;
+                }
+                .calculator .output_main {
+                    flex-direction: column;
+                    padding-top: 60px;
+                }
+                .calculator .output_main .left {
+                    width: 100%;
+                    padding-top: 0;
+                }
+                .calculator .output_main .left .top.desktop {
+                    display: none;
+                }
+                .calculator .output_main .left .top p {
+                    font-size: 30px !important;
+                    line-height: 40px !important;
+                }
+                .calculator .output_main .left .output {
+                    margin-bottom: 20px;
+                    justify-content: space-between;
+                }
+                .calculator .output_main .left .output .img {
+                    width: 40%;
+                    margin-right: 10px;
+                }
+                .calculator .output_main .left .output .output_text_main p,
+                .calculator .output_main .left .output .output_cup_main p {
+                    font-size: 24px;
+                }
+                .calculator .output_main .left .output .output_text_main span,
+                .calculator .output_main .left .output .output_cup_main span {
+                    font-size: 20px;
+                }
+                .calculator .output_main .left .output .output_text_main {
+                    left: 60%;
+                }
+                .calculator .output_main .left .output .output_cup_main {
+                    left: 40%;
+                }
+                .calculator .output_main .right {
+                    display: none;
+                    width: 100%;
+                    justify-content: center !important;
+                }
+                .calculator .output_main .right span.output_text {
+                    top: 58px;
+                    right: 17%;
+                    padding: 0 20px;
+                    min-width: 80px;
+                    border-radius: 50%;
+                }
+                .calculator .calc_img {
+                    display: block !important;
+                    padding: 30px 5px;
+                }
+            }
+
+            @media (max-width: 360px) {
+                .calculator .input .input_news .email_inp {
+                    font-size: 14px !important;
+                }
+                .calculator .output_main .right span.output_text {
+                    top: 58px;
+                    right: 14% !important;
+                    padding: 0 20px;
+                    min-width: 80px;
+                    border-radius: 30%;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <aside class="calculator">
+            <div class="title">
+                <p class="small"><img class=" ls-is-cached lazyloaded"
+                        src="./images/awesome.png">
+                </p>
+                <div class="main">
+                    <img class=" ls-is-cached lazyloaded"
+                        src="./images/calc_title.png" alt="">
+                    <h1 class="recoletasemibold">Caffeine Calculator</h1>
+                    <img class=" ls-is-cached lazyloaded"
+                        src="./images/calc_title_2.png" alt="">
+                </div>
+            </div>
+            <div class="top mobile">
+                <p>The amount of</p>
+                <p>caffeine you should</p>
+                <p>consume per day is</p>
+            </div>
+            <div class="input">
+                <div class="input_news">
+                    <input class="email_inp calculate_inp" type="number" maxlength="4"
+                    oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                    name="weight" id="weight" placeholder="Enter your weight (pounds)" required>
+                    <button onclick="caffeineLimit()" class="subscribe calculate">CALCULATE</button>                    
+                </div>
+            </div>
+            <div class="output_main">
+                <div class="left">
+                    <div class="top desktop">
+                        <p>The amount of</p>
+                        <p>caffeine you should</p>
+                        <p>consume per day is</p>
+                    </div>
+                    <div class="output">
+                        <div class="img">
+                            <img class=" ls-is-cached lazyloaded"
+                                src="./images/Vector_6.png" alt="">
+                            <div class="output_text_main">
+                                <p class="output_text">00</p>
+                                <span>mg</span>
+                            </div>
+                        </div>
+                        <div class="img">
+                            <img class=" ls-is-cached lazyloaded w-100"
+                                src="./images/cup.png" alt="">
+                            <div class="output_cup_main">
+                                <p class="output_cup">  0</p>
+                                <span class="output_cup_txt">Cup</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="right">
+                    <img class=" ls-is-cached lazyloaded"
+                        src="./images/calculator.png" alt=""> <span
+                        class="output_text">00</span>
+                </div>
+            </div>
+            <p class="powered">powered by <a href="https://awesomecoffee.com/" target="_blank"><b>AwesomeCoffee</b></a></p>
+        </aside>
+        <script>
+            function caffeineLimit() {
+                const weight = document.getElementById("weight").value
+                const mg = ((weight / 2.2) * 3).toFixed();
+                const cup = Math.trunc(mg / 80)
+                document.getElementsByClassName("output_cup")[0].innerHTML = cup;
+                document.getElementsByClassName("output_text")[0].innerHTML = mg;
+                document.getElementsByClassName("output_text")[1].innerHTML = mg;
+            }
+        </script>
+    </body>
+</html>
